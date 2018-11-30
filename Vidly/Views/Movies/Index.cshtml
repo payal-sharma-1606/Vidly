@@ -1,0 +1,23 @@
+﻿@model Vidly.DataContracts.MovieViewModel
+@{
+    ViewBag.Title = "Movies Page";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if(@Model.Movies.Count == 0)
+{
+<p>No one has rented any movie before.</p>
+}
+else{
+    <table class="table">
+        <thead>
+            @foreach (var movie in @Model.Movies)
+            {
+            <tr><th>@movie.Name.ToUpper()</th></tr>
+            }
+        </thead>
+</table>
+
+}
