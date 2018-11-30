@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using Vidly.Models;
 using Vidly.DataContracts;
+using Vidly.Models;
 
 namespace Vidly.Controllers
 {
@@ -25,26 +27,19 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
 
-            var movies = GetMovies();
+            var movie = _Context.Movies.Include(c => c.Genre);
 
-            var viewModel = new MovieViewModel
-            {
-                Movies = movies
-            };
-
-            return View(viewModel);
+            return View(movie);
         }
 
 
-        public List<Movie> GetMovies()
+        public ActionResult Details(int id)
         {
-            var movie = new List<Movie>
-            {
-                new Movie { Name = "Shrek.."},
-                new Movie { Name = "Wreck it Ralph.."}
-            };
+            var movie = _Context.Movies.Include(c => c.Genre).SingleOrDefault(c=>c.ID == id);
 
-            return movie;
+            if (movie == null)
+                HttpNotFound();
+            return View(movie);
         }
 
     }
