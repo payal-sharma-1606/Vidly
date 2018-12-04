@@ -45,5 +45,10 @@ namespace Vidly.Controllers
                 HttpNotFound();
             return View(customerDetail);
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
