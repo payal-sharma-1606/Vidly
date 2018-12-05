@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@Html.ActionLink("+","New","Movies",null,new {@class = "btn btn-primary float-md-right"})
 @if (!Model.Any())
 {
     <p>No Movie Present</p>
@@ -26,12 +26,10 @@ else
         {
 
             <tr>
-                <td>@Html.ActionLink(movie.Name, "Details", "Movies", new {ID = movie.ID}, null)</td>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new {ID = movie.ID}, null)</td>
                 <td>@movie.Genre.Name</td>
             </tr>
         }
         </tbody>
-        
-
     </table>
 }
