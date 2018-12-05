@@ -200,7 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
-    <Compile Include="DataContracts\CustomerViewModel.cs" />
+    <Compile Include="DataContracts\CustomerFormViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -275,6 +275,18 @@
     <Compile Include="Migrations\201811300924044_addmovie.cs" />
     <Compile Include="Migrations\201811300924044_addmovie.Designer.cs">
       <DependentUpon>201811300924044_addmovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812050449373_AddMembershipTypeDBSet.cs" />
+    <Compile Include="Migrations\201812050449373_AddMembershipTypeDBSet.Designer.cs">
+      <DependentUpon>201812050449373_AddMembershipTypeDBSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812050657011_test.cs" />
+    <Compile Include="Migrations\201812050657011_test.Designer.cs">
+      <DependentUpon>201812050657011_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812050659202_test2.cs" />
+    <Compile Include="Migrations\201812050659202_test2.Designer.cs">
+      <DependentUpon>201812050659202_test2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -354,7 +366,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Customer\New.cshtml" />
+    <Content Include="Views\Customer\CustomerForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -421,6 +433,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811300924044_addmovie.resx">
       <DependentUpon>201811300924044_addmovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050449373_AddMembershipTypeDBSet.resx">
+      <DependentUpon>201812050449373_AddMembershipTypeDBSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050657011_test.resx">
+      <DependentUpon>201812050657011_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050659202_test2.resx">
+      <DependentUpon>201812050659202_test2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

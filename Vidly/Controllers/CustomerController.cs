@@ -31,7 +31,7 @@ namespace Vidly.Controllers
         {
             // by default dbcontext load only customer object and not the related objects
             //Include() methods do this thing: this is called eager loading
-            var customers = _Context.Customers.Include(c=>c.MembershipType);
+            var customers = _Context.Customers.Include(c => c.MembershipType);
 
             return View(customers);
         }
@@ -48,7 +48,48 @@ namespace Vidly.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _Context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.ID == 0)
+                _Context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _Context.Customers.Single(c => c.ID == customer.ID);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            }
+
+            _Context.SaveChanges();
+
+            return RedirectToAction("Index", "Customer");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var _customerData = _Context.Customers.FirstOrDefault(c => c.ID == id);
+            if (_customerData == null)
+                return HttpNotFound();
+
+            var _viewModel = new CustomerFormViewModel
+            {
+                Customer = _customerData,
+                MembershipTypes = _Context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", _viewModel);
         }
     }
 }

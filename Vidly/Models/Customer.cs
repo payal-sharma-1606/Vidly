@@ -16,13 +16,20 @@ namespace Vidly.Models
         [StringLength(255)]
         public string Name { get; set; }
 
+
         [DisplayName("Date of Birth")]
         public DateTime Birthdate { get; set; }
+
+
         public bool IsSubscribedToNewsLetter { get; set; }
+
+
         public MembershipType MembershipType { get; set; } 
         // this is called as naviagtion property because it allows us to naviagte from one type to another
         //this is useful when we want to load objects and its related objects from db
 
+
+        [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }  
     }
 }
