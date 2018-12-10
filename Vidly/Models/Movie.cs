@@ -21,11 +21,13 @@ namespace Vidly.Models
 
 
         [Required]
-        public DateTime DateAdded { get; set; }
+        public DateTime DateAdded
+        { get; set; }
 
 
         [Required]
         [Display(Name = "No. in stock")]
+        [Range(1, 20)]
         public int NoInStock { get; set; }
 
 
@@ -34,6 +36,6 @@ namespace Vidly.Models
 
         [Required]
         [Display(Name = "Genre")]
-        public byte GenreId { get; set; } 
+        public byte GenreId { get; set; }
     }
 }

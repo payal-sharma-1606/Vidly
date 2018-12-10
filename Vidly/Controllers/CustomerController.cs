@@ -51,6 +51,7 @@ namespace Vidly.Controllers
             var membershipTypes = _Context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
 
@@ -59,8 +60,25 @@ namespace Vidly.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            //if (ModelState.ContainsKey("customer.ID"))
+            //    ModelState["customer.ID"].Errors.Clear();
+            ///instead i can initialize customer class in the CustomerFormViewModel with new Customer()
+
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _Context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+
             if (customer.ID == 0)
                 _Context.Customers.Add(customer);
             else

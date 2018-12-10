@@ -4,11 +4,14 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.Ajax.Utilities;
+using Vidly.BusinessRules;
 
 namespace Vidly.Models
 {
     public class Customer
     {
+        [Key]
         public int ID { get; set; }
 
 
@@ -18,7 +21,8 @@ namespace Vidly.Models
 
 
         [DisplayName("Date of Birth")]
-        public DateTime Birthdate { get; set; }
+        [CustomerAgeForMemberShip]
+        public DateTime? Birthdate { get; set; }
 
 
         public bool IsSubscribedToNewsLetter { get; set; }
@@ -30,6 +34,6 @@ namespace Vidly.Models
 
 
         [Display(Name = "Membership Type")]
-        public byte MembershipTypeId { get; set; }  
+        public byte MembershipTypeId { get; set; }
     }
 }
