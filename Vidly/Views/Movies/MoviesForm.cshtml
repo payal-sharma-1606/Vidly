@@ -10,26 +10,26 @@
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.Name)
-        @Html.TextBoxFor(c => c.Movie.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(c=>c.Movie.Name)
+        @Html.LabelFor(c => c.Name)
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c=>c.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.ReleaseDate)
-        @Html.TextBoxFor(c => c.Movie.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Movie.ReleaseDate)
+        @Html.LabelFor(c => c.ReleaseDate)
+        @Html.TextBoxFor(c => c.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.ReleaseDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.GenreId)
-        @Html.DropDownListFor(c => c.Movie.GenreId, new SelectList(Model.Genre, "Id", "Name"), "Select movie genre", new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Movie.GenreId)
+        @Html.LabelFor(c => c.GenreId)
+        @Html.DropDownListFor(c => c.GenreId, new SelectList(Model.Genre, "Id", "Name"), "Select movie genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.GenreId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.NoInStock)
-        @Html.TextBoxFor(c => c.Movie.NoInStock, new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Movie.NoInStock)
+        @Html.LabelFor(c => c.NoInStock)
+        @Html.TextBoxFor(c => c.NoInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.NoInStock)
     </div>
-    @Html.HiddenFor(c=>c.Movie.ID)
+    @Html.HiddenFor(c=>c.ID)
     @Html.AntiForgeryToken();
     <button type="submit" class="btn btn-primary">Save</button>
 }
