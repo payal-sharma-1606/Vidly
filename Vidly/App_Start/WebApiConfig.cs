@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace Vidly
@@ -13,10 +14,10 @@ namespace Vidly
         {
             var _settings = config.Formatters.JsonFormatter.SerializerSettings;
             _settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //_settings.Formatting = 
+            _settings.Formatting = Formatting.Indented;
 
 
-            //config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
