@@ -4,7 +4,7 @@
     ViewBag.Title = "Customer Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    @Html.ActionLink("+", "New", "Customer", null, new { @class = "btn btn-primary float-md-right" })
+@Html.ActionLink("+", "New", "Customer", null, new { @class = "btn btn-primary float-md-right" })
 
 @if (!Model.Any())
 {
@@ -12,13 +12,14 @@
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <table ID="Customers" class="table table-bordered table-hover">
 
 
         <thead>
             <tr>
                 <th>Customer</th>
                 <th>Discount Rate</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,10 +29,43 @@ else
                 <tr>
                     <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { ID = customer.ID }, null)</td>
                     <td>@customer.MembershipType.DiscountRate %</td>
+                    <td>
+                        <button data-customer-id="@customer.ID" class="btn btn-primary js-delete">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
 
 
     </table>
+}
+@section scripts
+{
+    <script>
+
+        $(document).ready(
+            function () {
+                $("#Customers").DataTable();
+                $("#Customers").on("click", ".js-delete", function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this customer?", function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/customers/" + button.attr("data-customer-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    button.parents("tr").remove();
+                                }
+                            })
+                        }
+                    });
+                })
+            });
+
+    </script>
+    <style>
+        .row {
+            width: 100% !important;
+        }
+    </style>
 }
