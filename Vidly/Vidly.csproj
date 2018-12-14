@@ -228,6 +228,7 @@
     <Compile Include="DataContracts\CustomerFormViewModel.cs" />
     <Compile Include="DataContracts\MoviewFormViewModel.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

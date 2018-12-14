@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Ajax.Utilities;
 using Vidly.BusinessRules;
+using Vidly.Dtos;
 
 namespace Vidly.Models
 {
@@ -28,7 +29,7 @@ namespace Vidly.Models
         public bool IsSubscribedToNewsLetter { get; set; }
 
 
-        public MembershipType MembershipType { get; set; } 
+        public MembershipTypeDto MembershipType { get; set; } 
         // this is called as naviagtion property because it allows us to naviagte from one type to another
         //this is useful when we want to load objects and its related objects from db
 
