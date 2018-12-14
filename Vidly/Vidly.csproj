@@ -228,6 +228,7 @@
     <Compile Include="DataContracts\CustomerFormViewModel.cs" />
     <Compile Include="DataContracts\MoviewFormViewModel.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
@@ -332,6 +333,14 @@
     <Compile Include="Migrations\201812060643406_AddedKeyAnnotationToID.cs" />
     <Compile Include="Migrations\201812060643406_AddedKeyAnnotationToID.Designer.cs">
       <DependentUpon>201812060643406_AddedKeyAnnotationToID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812141258261_ChangeMovie.cs" />
+    <Compile Include="Migrations\201812141258261_ChangeMovie.Designer.cs">
+      <DependentUpon>201812141258261_ChangeMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812141302332_Changemembershiotypedto.cs" />
+    <Compile Include="Migrations\201812141302332_Changemembershiotypedto.Designer.cs">
+      <DependentUpon>201812141302332_Changemembershiotypedto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -736,6 +745,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812060643406_AddedKeyAnnotationToID.resx">
       <DependentUpon>201812060643406_AddedKeyAnnotationToID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812141258261_ChangeMovie.resx">
+      <DependentUpon>201812141258261_ChangeMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812141302332_Changemembershiotypedto.resx">
+      <DependentUpon>201812141302332_Changemembershiotypedto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
