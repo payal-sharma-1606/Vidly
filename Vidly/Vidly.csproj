@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44366</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -342,6 +342,22 @@
     <Compile Include="Migrations\201812141302332_Changemembershiotypedto.Designer.cs">
       <DependentUpon>201812141302332_Changemembershiotypedto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812170610573_seedUsers.cs" />
+    <Compile Include="Migrations\201812170610573_seedUsers.Designer.cs">
+      <DependentUpon>201812170610573_seedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812170942334_AddedLicenceToRegister.cs" />
+    <Compile Include="Migrations\201812170942334_AddedLicenceToRegister.Designer.cs">
+      <DependentUpon>201812170942334_AddedLicenceToRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812170945294_AddedLicenceToRegister-force.cs" />
+    <Compile Include="Migrations\201812170945294_AddedLicenceToRegister-force.Designer.cs">
+      <DependentUpon>201812170945294_AddedLicenceToRegister-force.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812171001253_AddedLicenceToRegister_%40.cs" />
+    <Compile Include="Migrations\201812171001253_AddedLicenceToRegister_%40.Designer.cs">
+      <DependentUpon>201812171001253_AddedLicenceToRegister_%40.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -653,11 +669,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MoviesForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -752,6 +769,18 @@
     <EmbeddedResource Include="Migrations\201812141302332_Changemembershiotypedto.resx">
       <DependentUpon>201812141302332_Changemembershiotypedto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812170610573_seedUsers.resx">
+      <DependentUpon>201812170610573_seedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812170942334_AddedLicenceToRegister.resx">
+      <DependentUpon>201812170942334_AddedLicenceToRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812170945294_AddedLicenceToRegister-force.resx">
+      <DependentUpon>201812170945294_AddedLicenceToRegister-force.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812171001253_AddedLicenceToRegister_%40.resx">
+      <DependentUpon>201812171001253_AddedLicenceToRegister_%40.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -771,7 +800,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>36547</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:36547/</IISUrl>
+          <IISUrl>https://localhost:44366/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
