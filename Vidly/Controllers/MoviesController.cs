@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.DataContracts;
 using Vidly.Models;
+using System.Runtime.Caching;
 
 namespace Vidly.Controllers
 {
@@ -28,6 +29,15 @@ namespace Vidly.Controllers
         [Authorize]
         public ActionResult Index()
         {
+
+            //if (MemoryCache.Default["Genre"] == null)
+            //{
+            //    MemoryCache.Default["Genre"] = _Context.Genres.ToList();
+            //}
+
+
+            //var genre = MemoryCache.Default["Genre"] as IEnumerable<Genre>;
+
             var movie = _Context.Movies.Include(c => c.Genre);
             if (User.IsInRole("CanManageMovies"))
                 return View("List", movie);
